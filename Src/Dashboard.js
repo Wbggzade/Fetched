@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const dataContainer = document.getElementById('data-container');
 
-    const api= 'https://jsonplaceholder.typicode.com/photos?_limit=9';
+    const api= 'https://freetestapi.com/api/v1/cars?limit=5';
 
     fetch(api)
         .then(response => response.json())
@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 itemDiv.className = 'item';
 
                 const img = document.createElement('img');
-                img.src = item.url;
-                img.alt = item.title;
+                img.src = item.image;
+                img.alt = item.make;
 
                 const title = document.createElement('p');
                 title.textContent = item.title;
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 itemDiv.appendChild(title);
 
                 dataContainer.appendChild(itemDiv);
+                
             });
         })
         .catch(error => {
